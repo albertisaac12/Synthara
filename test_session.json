@@ -1,0 +1,86 @@
+{
+    "nodes": [
+        {
+            "id": "ARC-001",
+            "agent": "Architect",
+            "node_type": "decision",
+            "summary": "Defined the claim as exploratory",
+            "confidence": 0.9,
+            "inputs": [],
+            "triggered_by": null,
+            "output_artifact": null,
+            "flags": [],
+            "timestamp": "2026-03-17T12:48:17.843745",
+            "status": "active"
+        },
+        {
+            "id": "LIB-001",
+            "agent": "Librarian",
+            "node_type": "decision",
+            "summary": "Returned 1 citation for the claim",
+            "confidence": 0.7,
+            "inputs": [
+                "ARC-001"
+            ],
+            "triggered_by": null,
+            "output_artifact": null,
+            "flags": [],
+            "timestamp": "2026-03-17T12:48:17.851408",
+            "status": "active"
+        },
+        {
+            "id": "LOG-001",
+            "agent": "Logician",
+            "node_type": "flag",
+            "summary": "Flagged weak evidence",
+            "confidence": 0.4,
+            "inputs": [
+                "LIB-001"
+            ],
+            "triggered_by": null,
+            "output_artifact": null,
+            "flags": [
+                "weak_evidence"
+            ],
+            "timestamp": "2026-03-17T12:48:17.851408",
+            "status": "superseded"
+        },
+        {
+            "id": "LOG-002",
+            "agent": "Logician",
+            "node_type": "correction",
+            "summary": "Corrected analysis after better citations",
+            "confidence": 0.9,
+            "inputs": [
+                "LIB-001"
+            ],
+            "triggered_by": null,
+            "output_artifact": null,
+            "flags": [],
+            "timestamp": "2026-03-17T12:48:17.853502",
+            "status": "active"
+        }
+    ],
+    "edges": [
+        {
+            "from": "ARC-001",
+            "to": "LIB-001",
+            "type": "input"
+        },
+        {
+            "from": "LIB-001",
+            "to": "LOG-001",
+            "type": "input"
+        },
+        {
+            "from": "LIB-001",
+            "to": "LOG-002",
+            "type": "input"
+        },
+        {
+            "from": "LOG-001",
+            "to": "LOG-002",
+            "type": "superseded_by"
+        }
+    ]
+}
