@@ -1,11 +1,15 @@
 import os
+from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Synthara Configuration
 # ---------------------------------------------------------------------------
 
-# Gemini API key — set via environment variable or paste directly here.
-GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY", "YOUR_API_KEY_HERE")
+# Load variables from .env file (if present). This runs before anything else.
+load_dotenv()
+
+# Gemini API key — set in your .env file as: GEMINI_API_KEY=your-key-here
+GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY", "")
 
 # The model to use for all agent LLM calls.
 MODEL_NAME: str = "gemini-2.0-flash"

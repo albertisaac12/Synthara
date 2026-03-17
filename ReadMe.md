@@ -188,8 +188,10 @@ Project2/
 │   ├── auditor.py
 │   └── __init__.py
 ├── orchestrator.py           # Full pipeline coordinator
-├── config.py                 # API key, thresholds, settings
+├── config.py                 # Thresholds and settings (loads from .env)
 ├── main.py                   # CLI entry point
+├── .env                      # Your API key — gitignored, never committed
+├── .env.example              # Template showing required variables
 ├── requirments.txt
 └── README.md
 ```
@@ -213,19 +215,22 @@ pip install -r requirments.txt
 
 ### 3. Set your Gemini API key
 
-Either set the environment variable:
+Copy the example env file and fill in your key:
 
 ```powershell
-$env:GEMINI_API_KEY = "your-api-key-here"
+copy .env.example .env
 ```
 
-Or open `config.py` and paste it directly:
+Then open `.env` and replace the placeholder:
 
-```python
-GEMINI_API_KEY = "your-api-key-here"
 ```
+GEMINI_API_KEY=your-api-key-here
+```
+
+The `.env` file is gitignored — your key will never be committed. The `.env.example` template is committed so collaborators know which variables are needed.
 
 > Get a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey).
+
 
 ### 4. Tune thresholds (optional)
 

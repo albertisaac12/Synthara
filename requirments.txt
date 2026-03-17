@@ -2,6 +2,7 @@ contourpy==1.3.3
 cycler==0.12.1
 fonttools==4.62.1
 google-generativeai
+python-dotenv
 kiwisolver==1.5.0
 matplotlib==3.10.8
 networkx==3.6.1

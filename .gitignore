@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .env
+!.env.example
 session.json
 test_session.json
 *.log
